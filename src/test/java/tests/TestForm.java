@@ -42,6 +42,12 @@ public class TestForm {
         //$("[class=react-datepicker__month-select]").setValue("May");
        // $("[class=react-datepicker__year-select]").setValue("1999");
        // $("[class=react-datepicker__day--028").click();
+        // рабочий вариант выбора даты!
+        $("#dateOfBirthInput").click();
+        $(".react-datepicker__year-select").selectOption("1999");
+        $(".react-datepicker__month-select").selectOption("May");
+        $("[aria-label = 'Choose Saturday, May 1st, 1999']").click();
+
 
         $("[id=userNumber]").setValue(userPhone);
         $("[for=hobbies-checkbox-1]").click();
@@ -50,7 +56,7 @@ public class TestForm {
 
        $("[id=submit]").click();
 
-        $("[class=modal-content]").shouldHave(text(firstName + " " + lastName), text(userEmail), text(userPhone), text("Music"), text(currentAddress));
+        $("[class=modal-content]").shouldHave(text(firstName + " " + lastName), text(userEmail), text(userPhone), text("Music"), text(currentAddress), text("01 May,1999"));
         $("[id=closeLargeModal]").shouldBe(visible);
 
         System.out.println("Passed");
