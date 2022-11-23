@@ -4,7 +4,7 @@ import org.junit.jupiter.api.BeforeAll;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.$;
 
@@ -44,5 +44,25 @@ public class locatorsHw {
 
         //Step 8.	Click "Add to cart" button
         $(By.cssSelector("li div.product-item-info button")).click();
+
+        //Step 9.	Click to shopping cart
+        $(By.cssSelector("div.minicart-wrapper a span.counter")).shouldHave(text("1"));
+        $(By.cssSelector("a[href^='https://magento.softwaretestingboard.com/checkout/cart/']")).click();
+
+        //Step 10.	Check that coat is added
+        $(By.cssSelector("div.items-total")).shouldHave(text("1 Item in Cart"));
+
+        //Step 11.	Click delete item
+        $(By.cssSelector("#mini-cart div.secondary > a")).click();
+
+        //Step 12.	Check that "Are you sure you would like to remove this item from the shopping cart?" is visible
+        $(By.cssSelector("div#modal-content-103 div")).shouldHave(text("Are you sure you would like to remove this item from the shopping cart?"));
+
+        //Step 13.	Click on "Ok" button
+        $(By.cssSelector("footer button.action-accept")).click();
+
+        //Step 14.	Check that cart provides the message "You have no items in your shopping cart".
+        $(By.xpath("//div[@id='minicart-content-wrapper']/div[2]/strong")).shouldHave(text("You have no items in your shopping cart"));
+
     }
 }
