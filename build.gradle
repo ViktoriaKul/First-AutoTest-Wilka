@@ -7,6 +7,8 @@ repositories {
 }
 //библиотеки с зависимости
 dependencies {
+    implementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+
     //зависимрсти для тестов
     testImplementation(
             "com.codeborne:selenide:6.5.0",
