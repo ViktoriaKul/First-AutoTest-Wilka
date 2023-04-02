@@ -13,13 +13,24 @@ public class CartWidget {
     public void removeItemFromCart(){
         removeItemIcon.click();
     }
+    public void proceedToCheckout(){
+        proceedToCheckout.click();
+    }
 
-    private BaseElement cartTitle = new BaseElement(By.xpath("//span[@class='counter-number']"), "");
+    public BaseElement cartCounter = new BaseElement((By.xpath("//span[@class='count']")), "");
+    private BaseElement cartIconTitle = new BaseElement(By.xpath("//span[@class='counter-number']"), "");
 
     private BaseElement cartIcon = new BaseElement(By.xpath("//span[@class='counter qty']"), "");
 
     public String getCartQty(){
         cartIcon.getElement().should(appear);
-        return cartTitle.getText();
+        return cartIconTitle.getText();
+    }
+
+    public String getCartCounter(){
+        return cartCounter.getText();
+    }
+    public void openCartWidget(){
+        cartIcon.click();
     }
 }

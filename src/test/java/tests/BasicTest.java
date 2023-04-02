@@ -1,6 +1,7 @@
 package tests;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
+import pageObject.components.Popup;
 import pageObject.pages.LoginPage;
 import pageObject.components.CartWidget;
 import pageObject.pages.CatalogPage;
@@ -10,7 +11,7 @@ public class BasicTest {
     MainPage mainPage = new MainPage();
     CatalogPage catalogPage = new CatalogPage();
     CartWidget cartWidget = new CartWidget();
-
+    Popup popup = new Popup();
     LoginPage loginPage = new LoginPage();
 
 @BeforeAll

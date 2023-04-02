@@ -39,5 +39,8 @@ public class MainPage {
         navigationBar.expandMenCategory();
         navigationBar.selectPantsSubCategory();
     }
+
+
+
 }
 

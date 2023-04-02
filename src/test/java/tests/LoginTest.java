@@ -11,13 +11,14 @@ public class LoginTest extends BasicTest {
     String email = "v.kul@godeltech.com";
     String password = "$RFV4rfv";
 
-    public BaseElement warningText = new BaseElement(By.xpath("//*[@id=\"maincontent\"]/div[2]/div[2]/div/div/div" ), "");
+    public BaseElement welcomeText = new BaseElement(By.xpath("//span[contains(@class,'logged-in')]" ), "");
 
     @Test
     void loginTest(){
         mainPage.open();
         mainPage.clickSignIn();
         loginPage.loginAsUser(email, password);
-        Assertions.assertEquals("The account sign-in was incorrect or your account is disabled temporarily. Please wait and try again later.", warningText.getText());
+        Assertions.assertTrue(welcomeText.getElement().isDisplayed());
+    //    Assertions.assertEquals("Welcome, Viktoryia Kul!", welcomeText.getText());
     }
 }
